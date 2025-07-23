@@ -15,7 +15,6 @@ img {
   max-width: 100%;
   display: block;
 }
-
 body {
   background-color: lightblue;
 }
@@ -71,41 +70,53 @@ nav ul li a:focus {
 
 /*Main*/
 main {
-  padding-top: 8.5rem;
-  max-width: 1200px;
+  padding-top: 8.4rem;
+  width: 100%;
   margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  border: 1px solid black;
 }
 section {
   width: 100%;
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #fff;
-  border-radius: 0.7rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  border: 1px solid black;
 }
 
 /*Section "Home"*/
 #home {
-  background-color: red;
-}
-#home img {
-  width: 100%;
-  height: auto;
-  display: block;
+  background-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 55%,
+      #f0f0f0 100%
+    ),
+    url("Apoyaceluar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
 }
 #home p {
   padding: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.3;
-  background-color: #f5f5f5ff;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  border-radius: 1rem;
+  border: 1px solid black;
+  transition: transform 0.3s ease;
+}
+#home p:hover {
+  transform: scale(1.02);
 }
 
 /*Section Product*/
 #product {
-  background-color: grey;
+  margin-top: 0;
 }
 #product h2 {
   text-align: center;
@@ -120,55 +131,50 @@ section {
   background-color: #f5f5f5ff;
 }
 .gallery-products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 5rem;
 }
 .product-item {
-  background-color: #ffffff;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /*Le digo como va a ser la transicion de ambas opciones*/
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
-
 .product-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .product-img {
+  height: 9rem;
   width: 100%;
-  height: auto;
-  display: block;
-  border-bottom: 1px solid #ddd;
+  object-fit: cover;
 }
-
-.product-details {
-  padding: 1rem;
-}
-
-.product-name {
+.product-secret-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #333;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Evita que la capa bloquee otros eventos si es necesario */
 }
-
-.product-amount,
-.product-price,
-.product-offer {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
-  color: #444;
-}
-.product-offer {
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  text-decoration: solid underline;
-}
-.product-offer span {
-  color: #e53935;
-  font-weight: bold;
+.product-item:hover .product-secret-text {
+  opacity: 1; /* Se muestra al hacer hover en la tarjeta */
 }
 #product-contact {
   text-align: center;
@@ -177,7 +183,6 @@ section {
 
 /*Section "About us"*/
 #about-us {
-  background-color: green;
 }
 #about-us h2 {
   text-align: center;
@@ -197,41 +202,38 @@ section {
   color: #333;
   text-align: center;
 }
-.gallery-team {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+.gallery-department {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   gap: 1rem;
+  border: 1px solid black;
 }
-.team-member {
+.department {
   background-color: #ffffff;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.team-member:hover {
+.department:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-.member-photo {
+.department-photo {
   width: 100%;
   height: auto;
   display: block;
   border-bottom: 1px solid #ddd;
 }
-.member-info {
+.department-block-info {
   padding: 1rem;
 }
-.member-name {
+.department-name {
   font-size: 1.1rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 0.25rem;
-  text-align: center;
-}
-.member-role {
-  font-size: 0.9rem;
-  color: #666;
   text-align: center;
 }
 
@@ -271,9 +273,13 @@ footer {
 .social-media {
   margin-bottom: 0.5rem;
   border: 1px solid black;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
 }
 .social-media img {
   height: 2.5rem;
+  border-radius: 20%;
   transition: transform 0.3s ease;
 }
 .social-media img:hover {
