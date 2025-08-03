@@ -29,59 +29,75 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem;
   z-index: 100;
   height: 8.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav {
+  padding: 0 1rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 auto;
   gap: 1rem;
 }
-nav img {
+#logo-kaineos {
   height: 7rem;
-  margin-right: 1rem;
-  border-radius: 0.3rem;
+  width: 7rem;
+  background-image: url("Kaineos.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px)
+    var(--shadow-diffusion, 0px) rgb(206, 195, 195);
 }
 nav h1 {
   font-size: 3rem;
   margin: 0;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.01rem;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+nav h1:hover {
+  text-shadow: 0px 0px 3px rgb(255, 255, 255);
+  transform: translateY(-2px);
 }
 nav ul {
   display: flex;
   gap: 0.5rem;
 }
+nav ul li {
+  transition: transform 0.3s ease;
+}
+nav ul li:hover {
+  transform: translateY(-3px);
+}
 nav ul li a {
-  color: #cf6f2e;
+  display: inline-block; /* Evitar desborde */
+  color: #f08f3e;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease-in;
 }
 nav ul li a:hover,
 nav ul li a:focus {
-  background: #222;
+  background-color: #222;
 }
-
 /*Main*/
 main {
   padding-top: 8.4rem;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid black;
 }
 section {
   width: 100%;
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  border: 1px solid black;
 }
 
 /*Section "Home"*/
@@ -90,7 +106,7 @@ section {
       to bottom,
       transparent 0%,
       transparent 55%,
-      #f0f0f0 100%
+      #b0e36c 100%
     ),
     url("Apoyaceluar.jpg");
   background-repeat: no-repeat;
@@ -99,32 +115,41 @@ section {
   display: flex;
   align-items: center;
   margin-bottom: 0;
+  padding: 0;
 }
 #home p {
   padding: 1.5rem;
+  margin: 0;
+  width: 100%;
   font-size: 1.1rem;
   line-height: 1.3;
   backdrop-filter: blur(10px);
   text-align: center;
-  border-radius: 1rem;
-  border: 1px solid black;
-  transition: transform 0.3s ease;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.226);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    backdrop-filter 0.6s ease, background-color 0.6s ease;
 }
 #home p:hover {
-  transform: scale(1.02);
+  transform: translateY(-7px);
+  box-shadow: none;
+  backdrop-filter: none;
+  background-color: #f08f3e;
 }
 
 /*Section Product*/
 #product {
   margin-top: 0;
+  background-color: #b0e36c;
 }
 #product h2 {
   text-align: center;
   font-size: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f08f3e;
 }
 #product > p {
-  margin-top: 1.3rem;
-  margin-bottom: 1.3rem;
+  margin-top: 2.3rem;
+  margin-bottom: 3.3rem;
   padding: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.3;
@@ -134,11 +159,11 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 0 5rem;
+  padding: 0 3rem;
 }
 .product-item {
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -148,7 +173,7 @@ section {
 }
 .product-item:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
 }
 .product-img {
   height: 9rem;
@@ -161,20 +186,62 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(0 0 0 / 0.6);
   color: #ffffff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  opacity: 0; /* Oculto por defecto */
+  opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; /* Evita que la capa bloquee otros eventos si es necesario */
+}
+.product-secret-text h3 {
+  position: relative; /* 1. Crea el contexto para posicionar la línea */
+  padding-bottom: 0.5rem; /* Espacio para que la línea no se pegue al texto */
+  cursor: default;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.5s ease;
+}
+/* 2. Creamos la línea usando un pseudo-elemento */
+.product-secret-text h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* La posicionamos en el centro horizontal */
+  width: 0; /* 3. Inicia con ancho cero (invisible) */
+  height: 2px; /* Grosor de la línea */
+  background-color: #019c89; /* Color de la línea */
+  transform: translateX(-50%); /* Mantiene la línea centrada mientras crece */
+  transition: width 0.3s ease-in-out; /* 5. Animamos el cambio de ancho */
+}
+/* 4. Cuando se hace hover en el h3, afectamos a la línea (::after) */
+.product-secret-text h3:hover::after {
+  width: 100%; /* La línea crece al 100% del ancho del h3 */
+}
+.product-secret-text h3:hover {
+  background-color: #222;
+}
+.product-secret-text a {
+  text-decoration: none;
+}
+.product-secret-text p {
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .product-item:hover .product-secret-text {
-  opacity: 1; /* Se muestra al hacer hover en la tarjeta */
+  opacity: 1;
+}
+.product-secret-text p:hover {
+  background-color: #f08f3e;
+  transform: scale(1.1);
 }
 #product-contact {
   text-align: center;
@@ -187,17 +254,21 @@ section {
 #about-us h2 {
   text-align: center;
   font-size: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f08f3e;
 }
 #about-us > p {
-  margin-top: 1.3rem;
+  margin-top: 2.3rem;
+  margin-bottom: 2.3rem;
   padding: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.3;
   background-color: #f5f5f5ff;
+  border: 1px solid black;
 }
 #about-us h3 {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
+  border: 1px solid red;
   margin-bottom: 1.3rem;
   color: #333;
   text-align: center;
@@ -212,28 +283,38 @@ section {
 .department {
   background-color: #ffffff;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .department:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
 }
-.department-photo {
+.department-emoji {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid #ddd;
+  background-color: black;
 }
 .department-block-info {
-  padding: 1rem;
+  padding: 0.75rem;
+  border: 1px solid black;
 }
 .department-name {
   font-size: 1.1rem;
   font-weight: bold;
   color: #333;
+  border: 1px solid red;
   margin-bottom: 0.25rem;
+  text-align: center;
+}
+.department-info-text {
+  border: 1px solid green;
+  margin: 0.5rem;
   text-align: center;
 }
 
