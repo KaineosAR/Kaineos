@@ -4,9 +4,9 @@
     <title>"Nombre de edicion"</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="Kaineos.jpg" />
-    <link rel="stylesheet" href="styles-products.css" />
-    <script defer src="script-products.js"></script>
+    <link rel="icon" href="Images/Icons/Kaineos.webp" />
+    <link rel="stylesheet" href="CSS/styles-products.css" />
+    <script defer src="JS/script-products.js"></script>
     <meta name="description" content="" />
     <meta name="author" content="BoyTechAR" />
     <meta name="date" content="23-07-2025" />
@@ -31,36 +31,61 @@
         <h1>Kaineos</h1>
       </nav>
     </header>
-    <main>
+    <div id="back-link-container">
       <a href="index.html" id="back-link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="40px"
-            viewBox="0 -960 960 960"
-            width="40px"
-            fill="currentColor"
-          >
-            <path
-              d="m287-446.67 240 240L480-160 160-480l320-320 47 46.67-240 240h513v66.66H287Z"
-            />
-          </svg>Volver
-        </a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="40px"
+          viewBox="0 -960 960 960"
+          width="40px"
+          fill="currentColor"
+        >
+          <path
+            d="m287-446.67 240 240L480-160 160-480l320-320 47 46.67-240 240h513v66.66H287Z"
+          /></svg
+        >Volver
+      </a>
+    </div>
+    <main>
       <section id="product-box">
         <div id="product-box-images">
-         <div id="product-gallery">
-          <img src="Kaineos-Blanco.webp" class="image-inactive">
-          <img src="Apoyaceluar.jpg" class="image-inactive">
-          <img src="TikTok.webp" class="image-inactive">
-          <img src="WhatsApp.png" class="image-inactive">
-          <img src="Kaineos.jpg" class="image-inactive">
-         </div>
-         <div id="product-box-image-selected">
-           <img src="Kaineos-Blanco.webp" alt="Imagen del producto Kaineos Blanco" id="product-image-selected"/>
-           <!--Pista visual que sigue al cursor-->
-           <div class="zoom-cursor-hint"></div>
-         </div>
+          <div id="product-gallery">
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Rojo.webp"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Naranja.webp"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Amarillo.webp"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Verde.webp"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Azul.webp"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Negro.webp"
+              class="image-inactive"
+            />
+          </div>
+          <div id="product-box-image-selected">
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Rojo.webp"
+              alt="Imagen del producto Kaineos Blanco"
+              id="product-image-selected"
+            />
+            <!--Pista visual que sigue al cursor-->
+            <div class="zoom-cursor-hint"></div>
+          </div>
           <!--Caja donde se mostrará el zoom, fuera del contenedor de la imagen para que no interfiera-->
-         <div class="zoom-display-box"></div>
+          <div class="zoom-display-box"></div>
         </div>
         <div id="product-info">
           <h3 id="product-name">Nombre del producto</h3>
@@ -68,9 +93,10 @@
             <tr>
               <th></th>
               <th title="Rojo" id="th-rojo"></th>
-              <th title="Verde" id="th-verde"></th>
+              <th title="Naranja" id="th-naranja"></th>
               <th title="Amarillo" id="th-amarillo"></th>
-              <th title="Violeta" id="th-violeta"></th>
+              <th title="Verde" id="th-verde"></th>
+              <th title="Azul" id="th-azul"></th>
               <th title="Negro" id="th-negro"></th>
             </tr>
             <tr>
@@ -80,6 +106,7 @@
               <td>3</td>
               <td>4</td>
               <td>5</td>
+              <td>6</td>
             </tr>
           </table>
           <p id="product-price">Precio: $3.000</p>
@@ -87,10 +114,14 @@
         </div>
       </section>
     </main>
-        <footer>
+    <footer>
       <div class="footer-content">
         <div class="footer-left">
-          <img class="footer-logo" src="Kaineos.jpg" alt="Logo de Kaineos" />
+          <img
+            class="footer-logo"
+            src="Images/Icons/Kaineos.webp"
+            alt="Logo de Kaineos"
+          />
           <div class="footer-brand">
             <h4>Kaineos</h4>
             <p>Reciclando con Grandeza</p>
@@ -99,10 +130,10 @@
         <div class="footer-right">
           <div class="social-media">
             <a href="" target="_blank">
-              <img src="Instagram.webp" alt="Instagram" />
+              <img src="Images/Logos/Instagram.webp" alt="Instagram" />
             </a>
             <a href="" target="_blank">
-              <img src="TikTok.webp" alt="TikTok" />
+              <img src="Images/Logos/TikTok.webp" alt="TikTok" />
             </a>
           </div>
           <p class="copyright">
@@ -112,7 +143,7 @@
       </div>
     </footer>
     <a href="" target="_blank" id="whatsapp-icon-floating">
-      <img src="WhatsApp.png" alt="WhatsApp" />
+      <img src="Images/Logos/WhatsApp.webp" alt="WhatsApp" />
     </a>
   </body>
 </html>
