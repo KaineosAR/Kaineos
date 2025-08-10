@@ -20,7 +20,7 @@
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <meta property="og:image:alt" content="" />
-    <meta property="og:url" content="https://boytechar.github.io/Kaineos/" />
+    <meta property="og:url" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
   </head>
@@ -29,10 +29,95 @@
       <nav>
         <div id="logo-kaineos"></div>
         <h1>Kaineos</h1>
-        <ul>
-          <li><a href="#home">Principio</a></li>
-          <li><a href="#product">Productos</a></li>
-          <li><a href="#about-us">Sobre nosotros</a></li>
+        <button id="button-menu" class="button-menu-pasive">
+          <svg
+            id="open-menu"
+            class=""
+            xmlns="http://www.w3.org/2000/svg"
+            height="40px"
+            viewBox="0 -960 960 960"
+            width="40px"
+            fill="currentColor"
+          >
+            <path
+              d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"
+            />
+          </svg>
+          <svg
+            id="close-menu"
+            class="menu-switch"
+            xmlns="http://www.w3.org/2000/svg"
+            height="40px"
+            viewBox="0 -960 960 960"
+            width="40px"
+            fill="currentColor"
+          >
+            <path
+              d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"
+            />
+          </svg>
+        </button>
+        <ul id="nav-links" class="nav-links-close">
+          <li>
+            <a href="#home"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#ffffff"
+              >
+                <path
+                  d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+                /></svg
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a href="#product"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#ffffff"
+              >
+                <path
+                  d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"
+                /></svg
+              >Productos</a
+            >
+          </li>
+          <li>
+            <a href="#about-us"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#ffffff"
+              >
+                <path
+                  d="M480-400q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400ZM320-240h320v-23q0-24-13-44t-36-30q-26-11-53.5-17t-57.5-6q-30 0-57.5 6T369-337q-23 10-36 30t-13 44v23ZM720-80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80Zm0-80v-446L526-800H240v640h480Zm-480 0v-640 640Z"
+                /></svg
+              >Sobre nosotros</a
+            >
+          </li>
+          <li>
+            <a href="news.html" target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#ffffff"
+              >
+                <path
+                  d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h440l200 200v440q0 33-23.5 56.5T760-120H200Zm0-80h560v-400H600v-160H200v560Zm80-80h400v-80H280v80Zm0-320h200v-80H280v80Zm0 160h400v-80H280v80Zm-80-320v160-160 560-560Z"
+                /></svg
+              >Noticias</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -62,7 +147,7 @@
             />
             <div class="product-secret-text">
               <h3>Nombre del Apoyacelular n.° 1</h3>
-              <a href="producto-diseño-1.html">
+              <a href="product-disegn-1.html">
                 <p>Ver más</p>
               </a>
             </div>
@@ -75,7 +160,7 @@
             />
             <div class="product-secret-text">
               <h3>Nombre del Apoyacelular n.° 2</h3>
-              <a href="producto-diseño-2.html">
+              <a href="product-disegn-2.html">
                 <p>Ver más</p>
               </a>
             </div>
@@ -88,7 +173,7 @@
             />
             <div class="product-secret-text">
               <h3>Nombre del Apoyacelular n.° 3</h3>
-              <a href="producto-diseño-3.html">
+              <a href="product-disegn-3.html">
                 <p>Ver más</p>
               </a>
             </div>
@@ -101,7 +186,7 @@
             />
             <div class="product-secret-text">
               <h3>Nombre del Apoyacelular n.° 4</h3>
-              <a href="producto-diseño-4.html">
+              <a href="product-disegn-4.html">
                 <p>Ver más</p>
               </a>
             </div>
@@ -114,7 +199,7 @@
             />
             <div class="product-secret-text">
               <h3>Nombre del Apoyacelular n.° 5</h3>
-              <a href="producto-diseño-5.html">
+              <a href="product-disegn-5.html">
                 <p>Ver más</p>
               </a>
             </div>
@@ -122,7 +207,7 @@
         </ul>
         <div id="product-contact">
           <p>
-            ¿Querés hacer un pedido? Escribinos por WhatsApp usando el botón de
+            ¿Querés hacer un pedido? Escribinos por Instagram usando el botón de
             abajo a la derecha
           </p>
         </div>
@@ -264,8 +349,8 @@
         </div>
       </div>
     </footer>
-    <a href="" target="_blank" id="whatsapp-icon-floating">
-      <img src="Images/Logos/WhatsApp.webp" alt="WhatsApp" />
+    <a href="" target="_blank" id="instagram-icon-floating">
+      <img src="Images/Logos/Instagram.webp" alt="Instagram" />
     </a>
   </body>
 </html>

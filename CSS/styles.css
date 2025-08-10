@@ -19,7 +19,7 @@ body {
   background-color: lightblue;
 }
 
-/*Header*/
+/* ---------------Header--------------- */
 header {
   color: #ffffff;
   font-size: 1rem;
@@ -36,6 +36,8 @@ header {
   align-items: center;
 }
 nav {
+  margin-right: 1rem;
+  margin-left: 1rem;
   padding: 0 1rem;
   width: 100%;
   display: flex;
@@ -63,30 +65,93 @@ nav h1 {
 nav h1:hover {
   text-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
-nav ul {
+.button-menu-pasive {
+  background-color: #f08f3e;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.6rem;
+  z-index: 200;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.button-menu-active {
+  color: #f08f3e;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.6rem;
+  z-index: 200;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.menu-switch {
+  display: none;
+}
+#nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8.5rem;
+  right: 0;
+  width: 15rem;
+  background-color: #ccc;
   gap: 0.5rem;
+  border-radius: 0.1rem;
+  padding: 0.3rem 0;
+  z-index: 150;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
 }
-nav ul li {
-  transition: transform 0.3s ease;
+.nav-links-close {
+  opacity: 0;
+  transform: translateX(10rem);
+  visibility: hidden;
 }
-nav ul li:hover {
-  transform: translateY(-3px);
+.nav-links-open {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
 }
-nav ul li a {
-  display: inline-block; /* Evitar desborde */
+#nav-links li {
+  width: 100%;
+  border-bottom: 1.3px solid #ddd;
+  transition: box-shadow 0.3s ease-in;
+}
+#nav-links li:hover {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+#nav-links li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #f08f3e;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
   transition: background-color 0.3s ease-in;
 }
-nav ul li a:hover,
-nav ul li a:focus {
+#nav-links li a:hover {
   background-color: #222;
 }
-/*Main*/
+#nav-links li a svg {
+  position: absolute;
+  left: 1.3rem;
+}
+/* Estilo de foco visible solo para navegación con teclado, para mejorar la accesibilidad y evitar el "hover pegajoso" */
+#nav-links li a:focus-visible {
+  background-color: #222;
+  outline: 2px solid #f08f3e;
+  outline-offset: 2px;
+}
+
+/* ---------------Main--------------- */
 main {
   padding-top: 8.4rem;
   width: 100%;
@@ -99,13 +164,13 @@ section {
   overflow: hidden;
 }
 
-/*Section "Home"*/
+/* ---------------Section "Home"--------------- */
 #home {
   background-image: linear-gradient(
       to bottom,
       transparent 0%,
       transparent 55%,
-      #b0e36c 100%
+      #000000 100%
     ),
     url("../Apoyaceluar.jpg");
   background-repeat: no-repeat;
@@ -135,10 +200,10 @@ section {
   background-color: #f08f3e;
 }
 
-/*Section Product*/
+/* ---------------Section "Product"---------------*/
 #product {
   margin-top: 0;
-  background-color: #b0e36c;
+  background-color: #000000;
 }
 #product h2 {
   text-align: center;
@@ -245,9 +310,10 @@ section {
 #product-contact {
   text-align: center;
   margin-top: 2rem;
+  color: white;
 }
 
-/*Section "About us"*/
+/* ---------------Section "About us"--------------- */
 #about-us h2 {
   text-align: center;
   font-size: 2rem;
@@ -279,10 +345,9 @@ section {
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 .department:hover {
-  transform: translateY(-5px);
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
 }
 .department-emoji {
@@ -309,7 +374,7 @@ section {
   text-align: center;
 }
 
-/*Footer*/
+/* ---------------Footer--------------- */
 footer {
   background-color: lightpink;
   padding: 2rem 1rem;
@@ -342,7 +407,6 @@ footer {
 }
 .social-media {
   margin-bottom: 0.5rem;
-  border: 1px solid black;
   display: flex;
   gap: 1rem;
   justify-content: space-around;
@@ -359,19 +423,19 @@ footer {
   font-size: 0.9rem;
   color: black;
 }
-#whatsapp-icon-floating {
+#instagram-icon-floating {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 100;
-  width: 4.7rem;
-  height: 4.7rem;
+  z-index: 300;
+  width: 4rem;
+  height: 4rem;
   transition: transform 0.3s ease;
 }
-#whatsapp-icon-floating img {
+#instagram-icon-floating img {
   height: 100%;
   width: auto;
 }
-#whatsapp-icon-floating:hover {
+#instagram-icon-floating:hover {
   transform: scale(1.3);
 }

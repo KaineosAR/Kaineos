@@ -57,3 +57,29 @@ document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
     // Realizamos el scroll manualmente hasta la posición ajustada, con efecto suave
   });
 });
+
+// ---------------Evento: Despliegue y repliegue del nav---------------
+const menuButton = document.getElementById("button-menu");
+const openMenu = document.getElementById("open-menu");
+const closeMenu = document.getElementById("close-menu");
+const navLinks = document.getElementById("nav-links");
+const allLinksInMenu = document.querySelectorAll("#nav-links li a");
+
+function openOrCloseMenu() {
+  menuButton.classList.toggle("button-menu-pasive");
+  menuButton.classList.toggle("button-menu-active");
+  openMenu.classList.toggle("menu-switch");
+  closeMenu.classList.toggle("menu-switch");
+  navLinks.classList.toggle("nav-links-open");
+  navLinks.classList.toggle("nav-links-close");
+}
+
+menuButton.addEventListener("click", () => {
+  openOrCloseMenu();
+});
+
+allLinksInMenu.forEach((link) => {
+  link.addEventListener("click", () => {
+    openOrCloseMenu();
+  });
+});
