@@ -183,6 +183,7 @@ section {
   background-position: 50% 60%;
   height: 50rem;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 0;
   padding: 0;
@@ -544,7 +545,7 @@ footer {
 }
 @media (width >= 1800px) {
   #home {
-    background-position: 50% 45%;
+    background-position: 50% 48%;
   }
 }
 @media (width >= 1920px) {
@@ -564,6 +565,5 @@ footer {
 .wrapper {
   width: 100%;
   max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
