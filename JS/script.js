@@ -31,20 +31,28 @@ const handleLogoMouseOut = () => {
   logoKaineos.style.setProperty("--shadow-y", `0px`);
   logoKaineos.style.setProperty("--shadow-diffusion", `0rem`);
 };
-// Creamos una función que decide si AÑADIR o QUITAR el evento dependiendo del width del dispositivo
-const setupLogoAnimation = () => {
-  if (window.innerWidth >= 1279) {
+// Creamos un objeto media query para detectar la capacidad de hover. Tiene 1 valor, o true o false, ¿A que corresponde? A si puede o no hacer hover.
+const hoverQuery = window.matchMedia("(hover: hover)");
+// Creamos una función que decide si AÑADIR o QUITAR el evento dependiendo de si puede o no hacer hover
+const handleHoverChange = (event) => {
+  if (event.matches) {
+    // Si puede hacer hover, se añade el evento
     logoKaineos.addEventListener("mousemove", handleLogoMouseMove);
     logoKaineos.addEventListener("mouseout", handleLogoMouseOut);
   } else {
+    // Si no puede hacer hover, se quita el evento
     logoKaineos.removeEventListener("mousemove", handleLogoMouseMove);
     logoKaineos.removeEventListener("mouseout", handleLogoMouseOut);
+    // Reseteamos el estilo por si acaso quedó "pegado" de una vista anterior, recomendado por Gemini
+    handleLogoMouseOut();
   }
 };
-// Ejecutamos la función una vez al cargar la página.
-setupLogoAnimation();
-// Y la volvemos a ejecutar cada vez que el usuario cambia el tamaño de la ventana.
-window.addEventListener("resize", setupLogoAnimation);
+// Añadimos un listener que se dispara solo cuando la capacidad de hover cambia. Le dice a hoverQuery que cuando cambie de estado le avise.
+// El addEventListener le dice a hoverQuery "Avisame cuando tu estado cambie de true a false o viceversa. ¿Cambiaste? Bueno, llamo a la funcion para que ella te pregunte tu estado nuevamente y cambie el estado.
+hoverQuery.addEventListener("change", handleHoverChange);
+// Ejecutamos la funcion una vez al cargar la página para establecer el estado inicial. if (event.matches) se convierte en if (hoverQuery.matches).
+// Abro la pagina y mando hoverQuery a handleHoverChange. En la funcion le preguntan con matches, ¿Podes? ¿Si?, bueno, activa los cambios. ¿No podes? Bueno, lo dejamos todo como esta. 
+handleHoverChange(hoverQuery);
 
 // ---------------Evento: Navegación interna ajustada con compensación del header fijo---------------
 document.querySelectorAll('nav a[href^="#"]').forEach((link) => {

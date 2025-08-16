@@ -7,6 +7,9 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  background-color: lightblue;
+}
 ul,
 ol {
   list-style: none;
@@ -15,9 +18,6 @@ img {
   max-width: 100%;
   display: block;
 }
-body {
-  background-color: lightblue;
-}
 
 /* ---------------Header--------------- */
 header {
@@ -25,7 +25,7 @@ header {
   font-size: 1rem;
   font-family: "Silkscreen", sans-serif;
   text-align: center;
-  background-color: #000000;
+  background-color: #363232;
   position: fixed;
   top: 0;
   width: 100%;
@@ -166,7 +166,6 @@ main {
 section {
   width: 100%;
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
   overflow: hidden;
 }
 
@@ -178,7 +177,7 @@ section {
       transparent 55%,
       #000000 100%
     ),
-    url("../Images/Portada\ en\ el\ index-Home.webp");
+    url("../Images/Herramientas\ visuales/Portada en el index-Home.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 60%;
@@ -330,6 +329,17 @@ section {
   cursor: pointer;
   transition: background-color 0.5s ease, color 0.3s ease;
 }
+.product-secret-text p::after {
+  visibility: hidden;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #f08f3e;
+  transform: translateX(-50%); /* Mantiene la línea centrada */
+}
 @media (hover: hover) {
   .product-item:hover .product-secret-text p:hover {
     color: #f08f3e;
@@ -340,6 +350,9 @@ section {
   .product-secret-text p {
     backdrop-filter: blur(25px);
     background-color: transparent;
+  }
+  .product-secret-text p::after {
+    visibility: visible;
   }
 }
 #product-contact {
@@ -411,14 +424,14 @@ section {
 /* ---------------Footer--------------- */
 footer {
   padding: 2rem 1rem;
-  background-image: url(../Images/Background-image\ del\ footer\ en\ el\ index-2.webp);
+  background-image: url("../Images/Herramientas\ visuales/Background-image del footer en el index.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  width: 100%;
 }
 .footer-content {
   padding: 1rem;
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
@@ -484,13 +497,17 @@ footer {
   header {
     background-color: #363232;
   }
+  #home {
+    background-position: 40% 60%;
+  }
   #home p {
-    background-color: transparent;
-    backdrop-filter: blur(65px);
+    background-color: #f08f3e;
+    color: white;
   }
   #logo-kaineos {
     height: 5rem;
     width: 5rem;
+    background-image: url("../Images/Icons/Kaineos-Fondo\ negro.webp");
   }
   nav h1 {
     font-size: 2.1rem;
@@ -498,6 +515,21 @@ footer {
   #button-menu {
     height: 3rem;
     width: 3rem;
+  }
+  .product-secret-text h3 {
+    position: absolute;
+    top: 3%;
+  }
+  .product-secret-text p {
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (width <= 960px) {
+  #home {
+    align-items: end;
   }
 }
 @media (width >= 500px) and (width <= 1100px) {
@@ -509,4 +541,29 @@ footer {
   .gallery-department {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+@media (width >= 1800px) {
+  #home {
+    background-position: 50% 45%;
+  }
+}
+@media (width >= 1920px) {
+  #nav-links {
+    right: calc((100vw - 1920px) / 2 + 1rem);
+  }
+  #instagram-icon-floating {
+    right: calc((100vw - 1920px) / 2 + 1.5rem);
+  }
+}
+@media (width >= 3000px) {
+  #home {
+    background-position: 50% 40.5%;
+  }
+}
+/* ---------------Width maximo---------------*/
+.wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
