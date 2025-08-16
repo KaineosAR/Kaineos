@@ -1,6 +1,7 @@
 // ---------------Evento: Interacción dinámica con el logo de Kaineos---------------
 const logoKaineos = document.getElementById("logo-kaineos");
-logoKaineos.addEventListener("mousemove", (event) => {
+// Funcion para hacer el evento
+const handleLogoMouseMove = (event) => {
   const shadowFactor = 0.4; // Factor de desplazamiento de sombra, cuanto más alto, más se aleja del objeto
   const logoHeight = logoKaineos.clientHeight; // Agarro el height del logo dentro del evento para que no se rompa si cambia el tamaño de la ventana
   const logoWidth = logoKaineos.clientWidth; // Agarro el width del logo dentro del evento para que no se rompa si cambia el tamaño de la ventana
@@ -21,15 +22,29 @@ logoKaineos.addEventListener("mousemove", (event) => {
   logoKaineos.style.setProperty("--shadow-x", `${shadowX}px`);
   logoKaineos.style.setProperty("--shadow-y", `${shadowY}px`);
   logoKaineos.style.setProperty("--shadow-diffusion", `1rem`);
-});
-
-logoKaineos.addEventListener("mouseout", () => {
+};
+// Funcion para cerrar el evento
+const handleLogoMouseOut = () => {
   logoKaineos.style.transform =
     "perspective(500px) scale(1) rotateX(0deg) rotateY(0deg)"; // Reseteo la transformacion al salir del logo
   logoKaineos.style.setProperty("--shadow-x", `0px`);
   logoKaineos.style.setProperty("--shadow-y", `0px`);
   logoKaineos.style.setProperty("--shadow-diffusion", `0rem`);
-});
+};
+// Creamos una función que decide si AÑADIR o QUITAR el evento dependiendo del width del dispositivo
+const setupLogoAnimation = () => {
+  if (window.innerWidth >= 1279) {
+    logoKaineos.addEventListener("mousemove", handleLogoMouseMove);
+    logoKaineos.addEventListener("mouseout", handleLogoMouseOut);
+  } else {
+    logoKaineos.removeEventListener("mousemove", handleLogoMouseMove);
+    logoKaineos.removeEventListener("mouseout", handleLogoMouseOut);
+  }
+};
+// Ejecutamos la función una vez al cargar la página.
+setupLogoAnimation();
+// Y la volvemos a ejecutar cada vez que el usuario cambia el tamaño de la ventana.
+window.addEventListener("resize", setupLogoAnimation);
 
 // ---------------Evento: Navegación interna ajustada con compensación del header fijo---------------
 document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
@@ -64,7 +79,6 @@ const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
 const navLinks = document.getElementById("nav-links");
 const allLinksInMenu = document.querySelectorAll("#nav-links li a");
-
 function openOrCloseMenu() {
   menuButton.classList.toggle("button-menu-pasive");
   menuButton.classList.toggle("button-menu-active");
@@ -73,13 +87,17 @@ function openOrCloseMenu() {
   navLinks.classList.toggle("nav-links-open");
   navLinks.classList.toggle("nav-links-close");
 }
-
+// Me lo pidio Gemini, segun el es "Programacion defensiva"
+const closeAll = () => {
+  if (navLinks.classList.contains("nav-links-open")) {
+    openOrCloseMenu();
+  }
+};
 menuButton.addEventListener("click", () => {
   openOrCloseMenu();
 });
-
 allLinksInMenu.forEach((link) => {
   link.addEventListener("click", () => {
-    openOrCloseMenu();
+    closeAll();
   });
 });

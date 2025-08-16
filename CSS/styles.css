@@ -36,14 +36,13 @@ header {
   align-items: center;
 }
 nav {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 0rem;
+  margin-left: 0rem;
   padding: 0 1rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 1rem;
 }
 #logo-kaineos {
@@ -51,7 +50,8 @@ nav {
   width: 7rem;
   background-image: url("../Images/Icons/Kaineos.webp");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px)
     var(--shadow-diffusion, 0px) rgb(206, 195, 195);
@@ -62,8 +62,10 @@ nav h1 {
   letter-spacing: 0.01rem;
   transition: text-shadow 0.3s ease;
 }
-nav h1:hover {
-  text-shadow: 0px 0px 3px rgb(255, 255, 255);
+@media (hover: hover) {
+  nav h1:hover {
+    text-shadow: 0px 0px 3px rgb(255, 255, 255);
+  }
 }
 .button-menu-pasive {
   background-color: #f08f3e;
@@ -124,8 +126,10 @@ nav h1:hover {
   border-bottom: 1.3px solid #ddd;
   transition: box-shadow 0.3s ease-in;
 }
-#nav-links li:hover {
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+@media (hover: hover) {
+  #nav-links li:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  }
 }
 #nav-links li a {
   display: flex;
@@ -137,8 +141,10 @@ nav h1:hover {
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease-in;
 }
-#nav-links li a:hover {
-  background-color: #222;
+@media (hover: hover) {
+  #nav-links li a:hover {
+    background-color: #222;
+  }
 }
 #nav-links li a svg {
   position: absolute;
@@ -172,9 +178,10 @@ section {
       transparent 55%,
       #000000 100%
     ),
-    url("../Apoyaceluar.jpg");
+    url("../Images/Portada\ en\ el\ index-Home.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 60%;
   height: 50rem;
   display: flex;
   align-items: center;
@@ -187,17 +194,9 @@ section {
   width: 100%;
   font-size: 1.1rem;
   line-height: 1.3;
-  backdrop-filter: blur(10px);
+  background-color: #f08f3e;
   text-align: center;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.226);
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    backdrop-filter 0.6s ease, background-color 0.6s ease;
-}
-#home p:hover {
-  transform: translateY(-7px);
-  box-shadow: none;
-  backdrop-filter: none;
-  background-color: #f08f3e;
 }
 
 /* ---------------Section "Product"---------------*/
@@ -206,6 +205,7 @@ section {
   background-color: #000000;
 }
 #product h2 {
+  color: white;
   text-align: center;
   font-size: 2rem;
   padding-bottom: 0.75rem;
@@ -234,15 +234,24 @@ section {
   align-items: center;
   width: 100%;
   position: relative;
+  height: 9rem;
 }
-.product-item:hover {
-  transform: scale(1.01);
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+@media (hover: hover) {
+  .product-item:hover {
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+  }
 }
 .product-img {
-  height: 9rem;
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: 50% 75%;
+  transition: transform 0.3s ease;
+}
+@media (hover: hover) {
+  .product-item:hover .product-img {
+    transform: scale(1.05);
+  }
 }
 .product-secret-text {
   position: absolute;
@@ -261,6 +270,16 @@ section {
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .product-item:hover .product-secret-text {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .product-secret-text {
+    opacity: 1;
+  }
 }
 .product-secret-text h3 {
   position: relative; /* 1. Crea el contexto para posicionar la línea */
@@ -282,12 +301,22 @@ section {
   transform: translateX(-50%); /* Mantiene la línea centrada mientras crece */
   transition: width 0.3s ease-in-out; /* 5. Animamos el cambio de ancho */
 }
-/* 4. Cuando se hace hover en el h3, afectamos a la línea (::after) */
-.product-secret-text h3:hover::after {
-  width: 100%; /* La línea crece al 100% del ancho del h3 */
+@media (hover: hover) {
+  .product-item:hover .product-secret-text h3 {
+    background-color: #222;
+  }
+  /* 4. Cuando se hace hover en el h3, afectamos a la línea (::after) */
+  .product-item:hover .product-secret-text h3::after {
+    width: 100%; /* La línea crece al 100% del ancho del h3 */
+  }
 }
-.product-secret-text h3:hover {
-  background-color: #222;
+@media (hover: none) {
+  .product-secret-text h3 {
+    backdrop-filter: blur(25px);
+  }
+  .product-secret-text h3::after {
+    width: 100%;
+  }
 }
 .product-secret-text a {
   text-decoration: none;
@@ -297,15 +326,21 @@ section {
   margin-top: 1.5rem;
   border-radius: 0.3rem;
   color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.product-item:hover .product-secret-text {
-  opacity: 1;
-}
-.product-secret-text p:hover {
   background-color: #f08f3e;
-  transform: scale(1.1);
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+@media (hover: hover) {
+  .product-item:hover .product-secret-text p:hover {
+    color: #f08f3e;
+    background-color: #ffffff;
+  }
+}
+@media (hover: none) {
+  .product-secret-text p {
+    backdrop-filter: blur(25px);
+    background-color: transparent;
+  }
 }
 #product-contact {
   text-align: center;
@@ -335,9 +370,8 @@ section {
   text-align: center;
 }
 .gallery-department {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 .department {
@@ -376,8 +410,11 @@ section {
 
 /* ---------------Footer--------------- */
 footer {
-  background-color: lightpink;
   padding: 2rem 1rem;
+  background-image: url(../Images/Background-image\ del\ footer\ en\ el\ index-2.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 .footer-content {
   padding: 1rem;
@@ -395,7 +432,7 @@ footer {
   gap: 1rem;
 }
 .footer-right {
-  text-align: right;
+  text-align: center;
 }
 .footer-logo {
   height: 4rem;
@@ -436,6 +473,40 @@ footer {
   height: 100%;
   width: auto;
 }
-#instagram-icon-floating:hover {
-  transform: scale(1.3);
+@media (hover: hover) {
+  #instagram-icon-floating:hover {
+    transform: scale(1.3);
+  }
+}
+
+/* ---------------Responsive Web Design--------------- */
+@media (width <= 480px) {
+  header {
+    background-color: #363232;
+  }
+  #home p {
+    background-color: transparent;
+    backdrop-filter: blur(65px);
+  }
+  #logo-kaineos {
+    height: 5rem;
+    width: 5rem;
+  }
+  nav h1 {
+    font-size: 2.1rem;
+  }
+  #button-menu {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+@media (width >= 500px) and (width <= 1100px) {
+  .gallery-department {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width >= 1100px) {
+  .gallery-department {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
