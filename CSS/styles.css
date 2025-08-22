@@ -1,3 +1,4 @@
+/* ---------------Limpieza--------------- */
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +31,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 100;
-  height: 8.5rem;
+  height: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +47,8 @@ nav {
   gap: 1rem;
 }
 #logo-kaineos {
-  height: 7rem;
-  width: 7rem;
+  height: 5rem;
+  width: 5rem;
   background-image: url("../Images/Icons/Kaineos.webp");
   background-repeat: no-repeat;
   background-size: contain;
@@ -77,7 +78,9 @@ nav h1 {
   justify-content: flex-start;
   padding: 0.6rem;
   z-index: 200;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  width: 3rem;
+  height: 3rem;
 }
 .button-menu-active {
   color: #f08f3e;
@@ -90,6 +93,8 @@ nav h1 {
   padding: 0.6rem;
   z-index: 200;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  width: 3rem;
+  height: 3rem;
 }
 .menu-switch {
   display: none;
@@ -100,7 +105,7 @@ nav h1 {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 8.5rem;
+  top: 6.5rem;
   right: 0;
   width: 15rem;
   background-color: #ccc;
@@ -159,7 +164,7 @@ nav h1 {
 
 /* ---------------Main--------------- */
 main {
-  padding-top: 8.4rem;
+  padding-top: 6.5rem;
   width: 100%;
   margin: 0 auto;
 }
@@ -182,21 +187,18 @@ section {
   background-size: cover;
   background-position: 50% 60%;
   height: 50rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 0;
   padding: 0;
 }
 #home p {
   padding: 1.5rem;
   margin: 0;
-  width: 100%;
   font-size: 1.1rem;
   line-height: 1.3;
   background-color: #f08f3e;
   text-align: center;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.226);
+  transform: translate(-50%, -50%);
 }
 
 /* ---------------Section "Product"---------------*/
@@ -221,6 +223,8 @@ section {
 }
 .gallery-products {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1.5rem;
   padding: 0 3rem;
@@ -233,34 +237,32 @@ section {
   display: flex;
   align-items: center;
   width: 100%;
-  position: relative;
   height: 9rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 @media (hover: hover) {
   .product-item:hover {
-    box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+    box-shadow: 0 4px 10px rgba(223, 216, 216, 0.644);
+    transform: scale(1.01);
   }
 }
 .product-img {
-  width: 100%;
+  width: 65%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 75%;
   transition: transform 0.3s ease;
 }
-@media (hover: hover) {
-  .product-item:hover .product-img {
-    transform: scale(1.05);
-  }
+#product-img-liso {
+  object-position: 50% 82.5%;
+}
+#product-img-bioma {
+  object-position: 50% 74%;
 }
 .product-secret-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 35%;
   height: 100%;
-  background-color: rgb(0 0 0 / 0.6);
   color: #ffffff;
+  background-color: #363232;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -268,26 +270,14 @@ section {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-@media (hover: hover) {
-  .product-item:hover .product-secret-text {
-    opacity: 1;
-  }
-}
-@media (hover: none) {
-  .product-secret-text {
-    opacity: 1;
-  }
 }
 .product-secret-text h3 {
   position: relative; /* 1. Crea el contexto para posicionar la línea */
-  padding-bottom: 0.5rem; /* Espacio para que la línea no se pegue al texto */
+  padding-bottom: 0.1rem; /* Espacio para que la línea no se pegue al texto */
   cursor: default;
   padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  transition: background-color 0.5s ease;
+  border-radius: 0.1rem;
+  background-color: #827878;
 }
 /* 2. Creamos la línea usando un pseudo-elemento */
 .product-secret-text h3::after {
@@ -295,28 +285,10 @@ section {
   position: absolute;
   bottom: 0;
   left: 50%; /* La posicionamos en el centro horizontal */
-  width: 0; /* 3. Inicia con ancho cero (invisible) */
+  width: 100%;
   height: 2px; /* Grosor de la línea */
   background-color: #019c89; /* Color de la línea */
-  transform: translateX(-50%); /* Mantiene la línea centrada mientras crece */
-  transition: width 0.3s ease-in-out; /* 5. Animamos el cambio de ancho */
-}
-@media (hover: hover) {
-  .product-item:hover .product-secret-text h3 {
-    background-color: #222;
-  }
-  /* 4. Cuando se hace hover en el h3, afectamos a la línea (::after) */
-  .product-item:hover .product-secret-text h3::after {
-    width: 100%; /* La línea crece al 100% del ancho del h3 */
-  }
-}
-@media (hover: none) {
-  .product-secret-text h3 {
-    backdrop-filter: blur(25px);
-  }
-  .product-secret-text h3::after {
-    width: 100%;
-  }
+  transform: translateX(-50%); /* Mantiene la línea centrada */
 }
 .product-secret-text a {
   text-decoration: none;
@@ -328,32 +300,12 @@ section {
   color: #ffffff;
   background-color: #f08f3e;
   cursor: pointer;
-  transition: background-color 0.5s ease, color 0.3s ease;
-}
-.product-secret-text p::after {
-  visibility: hidden;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 100%;
-  height: 2px;
-  background-color: #f08f3e;
-  transform: translateX(-50%); /* Mantiene la línea centrada */
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 @media (hover: hover) {
-  .product-item:hover .product-secret-text p:hover {
+  .product-secret-text p:hover {
     color: #f08f3e;
     background-color: #ffffff;
-  }
-}
-@media (hover: none) {
-  .product-secret-text p {
-    backdrop-filter: blur(25px);
-    background-color: transparent;
-  }
-  .product-secret-text p::after {
-    visibility: visible;
   }
 }
 #product-contact {
@@ -467,8 +419,10 @@ footer {
   border-radius: 20%;
   transition: transform 0.3s ease;
 }
-.social-media img:hover {
-  transform: scale(1.1);
+@media (hover: hover) {
+  .social-media img:hover {
+    transform: scale(1.1);
+  }
 }
 .copyright {
   font-size: 0.9rem;
@@ -495,42 +449,26 @@ footer {
 
 /* ---------------Responsive Web Design--------------- */
 @media (width <= 480px) {
-  header {
-    background-color: #363232;
-  }
-  #home {
-    background-position: 40% 60%;
-  }
-  #home p {
-    background-color: #f08f3e;
-    color: white;
-  }
   #logo-kaineos {
-    height: 5rem;
-    width: 5rem;
     background-image: url("../Images/Icons/Kaineos-Fondo\ negro.webp");
   }
   nav h1 {
     font-size: 2.1rem;
   }
-  #button-menu {
-    height: 3rem;
-    width: 3rem;
+  .product-item {
+    width: 15rem;
+    height: 15rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
   }
-  .product-secret-text h3 {
-    position: absolute;
-    top: 3%;
+  .product-img {
+    width: 100%;
+    height: 50%;
   }
-  .product-secret-text p {
-    position: absolute;
-    top: 14%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-@media (width <= 960px) {
-  #home {
-    align-items: end;
+  .product-secret-text {
+    width: 100%;
+    height: 50%;
   }
 }
 @media (width >= 500px) and (width <= 1100px) {
@@ -543,11 +481,6 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (width >= 1800px) {
-  #home {
-    background-position: 50% 48%;
-  }
-}
 @media (width >= 1920px) {
   #nav-links {
     right: calc((100vw - 1920px) / 2 + 1rem);
@@ -556,14 +489,8 @@ footer {
     right: calc((100vw - 1920px) / 2 + 1.5rem);
   }
 }
-@media (width >= 3000px) {
-  #home {
-    background-position: 50% 40.5%;
-  }
-}
 /* ---------------Width maximo---------------*/
 .wrapper {
-  width: 100%;
   max-width: 1920px;
   margin: auto;
 }

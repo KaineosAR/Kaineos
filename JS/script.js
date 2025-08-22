@@ -51,7 +51,7 @@ const handleHoverChange = (event) => {
 // El addEventListener le dice a hoverQuery "Avisame cuando tu estado cambie de true a false o viceversa. ¿Cambiaste? Bueno, llamo a la funcion para que ella te pregunte tu estado nuevamente y cambie el estado.
 hoverQuery.addEventListener("change", handleHoverChange);
 // Ejecutamos la funcion una vez al cargar la página para establecer el estado inicial. if (event.matches) se convierte en if (hoverQuery.matches).
-// Abro la pagina y mando hoverQuery a handleHoverChange. En la funcion le preguntan con matches, ¿Podes? ¿Si?, bueno, activa los cambios. ¿No podes? Bueno, lo dejamos todo como esta. 
+// Abro la pagina y mando hoverQuery a handleHoverChange. En la funcion le preguntan con matches, ¿Podes? ¿Si?, bueno, activa los cambios. ¿No podes? Bueno, lo dejamos todo como esta.
 handleHoverChange(hoverQuery);
 
 // ---------------Evento: Navegación interna ajustada con compensación del header fijo---------------
@@ -88,11 +88,11 @@ const closeMenu = document.getElementById("close-menu");
 const navLinks = document.getElementById("nav-links");
 const allLinksInMenu = document.querySelectorAll("#nav-links li a");
 function openOrCloseMenu() {
-  menuButton.classList.toggle("button-menu-pasive");
+  menuButton.classList.toggle("button-menu-pasive"); // Cambiar el background-color del boton del menu desplegable
   menuButton.classList.toggle("button-menu-active");
-  openMenu.classList.toggle("menu-switch");
+  openMenu.classList.toggle("menu-switch"); // Cambiar el SVG del boton del menu desplegable
   closeMenu.classList.toggle("menu-switch");
-  navLinks.classList.toggle("nav-links-open");
+  navLinks.classList.toggle("nav-links-open"); // Abrir o cerrar la lista de enlaces
   navLinks.classList.toggle("nav-links-close");
 }
 // Me lo pidio Gemini, segun el es "Programacion defensiva"
