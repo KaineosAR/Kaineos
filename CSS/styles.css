@@ -292,7 +292,6 @@ section {
 }
 .product-item {
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -306,6 +305,21 @@ section {
     box-shadow: 0 4px 10px rgba(223, 216, 216, 0.644);
     transform: scale(1.01);
   }
+}
+/* ---------------Próximamente--------------- */
+.product-item.proximamente {
+  background-image: url("../Images/Herramientas\ visuales/Portada en los productos aun no publicados en el index.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.h3-proximamente {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
 }
 .product-img {
   width: 65%;
