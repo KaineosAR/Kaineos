@@ -164,7 +164,7 @@ function updateGallery(newIndex) {
       transitionDuration / 1000
     }s ease-in-out`;
     mainImage.style.transform = `translateX(${-direction * 100}%)`;
-
+    // El setTimeout() es necesario para que el cambio no sea inmediato, sino que dure un tiempo
     setTimeout(() => {
       mainImage.style.transition = "none";
       mainImage.src = thumbnails[newIndex].src;
@@ -261,7 +261,7 @@ function setupSwipeListeners() {
   }
 }
 
-// --- Inicialización General ---
+// ---------------Evento: Inicializar en 0 todo---------------
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Se establece el estado inicial de la galería sin animaciones.
   mainImage.src = thumbnails[0].src;
@@ -276,8 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", setupSwipeListeners);
 });
 
-// --- Lógica del Modal (Lightbox) ---
-
+// ---------------Evento: Modal(caja expandida de imagen)---------------
 // Seleccionamos todos los elementos del modal que acabamos de crear
 const modal = document.getElementById("fullscreen-modal");
 const modalImage = document.getElementById("modal-image");
@@ -309,6 +308,7 @@ function updateModalContent(index) {
 // Función para mostrar la imagen siguiente
 function showNextImage() {
   // Usamos el operador de módulo (%) para crear un bucle infinito
+  // Gemini: El "bucle infinito" significa que, gracias al operador módulo (%), el resultado de la operación siempre estará dentro del rango de índices válidos (de 0 a 5 en nuestro ejemplo). Nunca se pasará de largo ni dará un número negativo, creando un ciclo perfecto y sin fin para tu galería.
   const nextIndex = (currentImageIndex + 1) % totalImages;
   updateGallery(nextIndex); // 1. Actualizamos la galería principal (que actualiza el estado)
   updateModalContent(nextIndex); // 2. Y luego actualizamos el modal para que coincida
@@ -317,12 +317,12 @@ function showNextImage() {
 // Función para mostrar la imagen anterior
 function showPrevImage() {
   const prevIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+  // Gemini: + totalImages es un "truco de seguridad" matemático para evitar índices negativos cuando vas hacia atrás desde la primera imagen. Se asegura de que el número que entra al operador % sea siempre positivo, garantizando que el bucle funcione perfectamente en ambas direcciones. Para la navegación "hacia adelante", no tiene ningún efecto práctico, pero para la navegación "hacia atrás desde el inicio", es absolutamente esencial.
   updateGallery(prevIndex); // 1. Actualizamos la galería principal (que actualiza el estado)
   updateModalContent(prevIndex); // 2. Y luego actualizamos el modal para que coincida
 }
 
-// --- Eventos para abrir y cerrar el modal ---
-
+// ---------------Evento: Abrir y cerrar el modal (caja expandida de imagen)---------------
 // Abrir el modal al hacer clic en la imagen principal
 mainImage.addEventListener("click", () => {
   openModal(currentImageIndex);
@@ -335,7 +335,6 @@ closeModalBtn.addEventListener("click", closeModal);
 modal.addEventListener("click", (event) => {
   const canHover = window.matchMedia("(hover: hover)").matches;
   if (!canHover) return; // Esta lógica no se aplica en dispositivos táctiles
-
   // Si el clic fue sobre la imagen o un control, no hacemos nada.
   // Dejamos que sus propios eventos (si los tienen) se encarguen.
   if (
@@ -343,17 +342,17 @@ modal.addEventListener("click", (event) => {
     event.target.closest(".modal-control")
   ) {
     return;
+  } else {
+    // Si la condición anterior es falsa (el clic fue en el fondo),
+    // entonces ejecutamos la lógica para cerrar el modal.
+    closeModal();
   }
-
-  // Si el clic no fue en la imagen ni en un control, significa que fue en el fondo.
-  // Por lo tanto, cerramos el modal.
-  closeModal();
 });
 
-// --- Eventos para la navegación (flechas y teclado) ---
+// ---------------Evento: Navegacion con el teclado---------------
 nextModalBtn.addEventListener("click", showNextImage);
 prevModalBtn.addEventListener("click", showPrevImage);
-
+// ArrowRight/Left y Escape son estandares W3C
 document.addEventListener("keydown", (event) => {
   if (!modal.classList.contains("hidden")) {
     // Solo si el modal está abierto

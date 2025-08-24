@@ -20,6 +20,29 @@ img {
   display: block;
 }
 
+/* ---------------Fuentes--------------- */
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.carrois-gothic-sc-regular {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* <weight>: Use a value from 100 to 900 */
+/* <width>: Use a value from 75 to 100 */
+/* <uniquifier>: Use a unique and descriptive class name */
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
 /* ---------------Header--------------- */
 header {
   color: #ffffff;
@@ -58,9 +81,10 @@ nav {
     var(--shadow-diffusion, 0px) rgb(206, 195, 195);
 }
 nav h1 {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 3rem;
   margin: 0;
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.2rem;
   transition: text-shadow 0.3s ease;
 }
 @media (hover: hover) {
@@ -108,6 +132,7 @@ nav h1 {
   top: 6.5rem;
   right: 0;
   width: 15rem;
+  font-family: "Carrois Gothic SC", sans-serif;
   background-color: #ccc;
   gap: 0.5rem;
   border-radius: 0.1rem;
@@ -189,16 +214,48 @@ section {
   height: 50rem;
   margin-bottom: 0;
   padding: 0;
+  position: relative;
 }
 #home p {
+  font-family: "Carrois Gothic SC", sans-serif;
   padding: 1.5rem;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 3rem;
   line-height: 1.3;
-  background-color: #f08f3e;
+  color: #f08f3e;
   text-align: center;
-  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.226);
+  position: absolute;
+  top: 15%;
+  left: 85%;
   transform: translate(-50%, -50%);
+}
+#buy-button {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-size: 1.8rem;
+  width: 18rem;
+  height: 5rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #f08f3e;
+  text-decoration: none;
+  position: absolute;
+  top: 45%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+@media (hover: hover) {
+  #buy-button:hover {
+    box-shadow: 0 4px 12px 3px rgb(0 0 0 / 0.2);
+    color: #f08f3e;
+    background-color: #ffffff;
+  }
 }
 
 /* ---------------Section "Product"---------------*/
@@ -209,6 +266,8 @@ section {
 #product h2 {
   color: white;
   text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.2rem;
   font-size: 2rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #f08f3e;
@@ -217,6 +276,7 @@ section {
   margin-top: 2.3rem;
   margin-bottom: 3.3rem;
   padding: 1.5rem;
+  font-family: "Carrois Gothic SC", sans-serif;
   font-size: 1.1rem;
   line-height: 1.3;
   background-color: #f5f5f5ff;
@@ -228,6 +288,7 @@ section {
   flex-direction: column;
   gap: 1.5rem;
   padding: 0 3rem;
+  font-family: "Carrois Gothic SC", sans-serif;
 }
 .product-item {
   border-radius: 0.5rem;
@@ -256,6 +317,9 @@ section {
   object-position: 50% 82.5%;
 }
 #product-img-bioma {
+  object-position: 50% 74%;
+}
+#product-img-patriotico {
   object-position: 50% 74%;
 }
 .product-secret-text {
@@ -312,6 +376,7 @@ section {
   text-align: center;
   margin-top: 2rem;
   color: white;
+  font-family: "Carrois Gothic SC", sans-serif;
 }
 
 /* ---------------Section "About us"--------------- */
@@ -320,25 +385,30 @@ section {
   font-size: 2rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #f08f3e;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.1rem;
 }
 #about-us > p {
   margin-top: 2.3rem;
   margin-bottom: 2.3rem;
   padding: 1.5rem;
+  font-family: "Carrois Gothic SC", sans-serif;
   font-size: 1.1rem;
   line-height: 1.3;
   background-color: #f5f5f5ff;
 }
 #about-us h3 {
   font-size: 1.5rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
   color: #333;
+  font-family: "Roboto", sans-serif;
   text-align: center;
 }
 .gallery-department {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  font-family: "Carrois Gothic SC", sans-serif;
 }
 .department {
   background-color: #ffffff;
@@ -347,8 +417,10 @@ section {
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
-.department:hover {
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+@media (hover: hover) {
+  .department:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  }
 }
 .department-emoji {
   width: 100%;
@@ -363,6 +435,8 @@ section {
   padding: 0.75rem;
 }
 .department-name {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.04rem;
   font-size: 1.1rem;
   font-weight: bold;
   color: #333;
@@ -382,6 +456,7 @@ footer {
   background-size: cover;
   background-position: 50% 50%;
   width: 100%;
+  font-family: "Carrois Gothic SC", sans-serif;
 }
 .footer-content {
   padding: 1rem;
@@ -427,6 +502,7 @@ footer {
 .copyright {
   font-size: 0.9rem;
   color: black;
+  text-align: center;
 }
 #instagram-icon-floating {
   position: fixed;

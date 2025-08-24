@@ -14,26 +14,26 @@ ol {
 }
 
 /* ---------------Fuentes--------------- */
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .carrois-gothic-sc-regular {
   font-family: "Carrois Gothic SC", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
 /* <weight>: Use a value from 100 to 900 */
 /* <width>: Use a value from 75 to 100 */
 /* <uniquifier>: Use a unique and descriptive class name */
-
-/*.roboto {
+.roboto {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-}*/
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 /* ---------------Header--------------- */
@@ -72,9 +72,10 @@ nav {
     var(--shadow-diffusion, 0px) rgb(206, 195, 195);
 }
 nav h1 {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 3rem;
   margin: 0;
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.2rem;
   transition: text-shadow 0.3s ease;
 }
 @media (hover: hover) {
@@ -108,6 +109,7 @@ section {
 }
 #back-link {
   padding: 1rem;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -131,9 +133,10 @@ section {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  font-family: "Roboto", sans-serif;
   border-radius: 0.2rem;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
-  border: 2px solid red;
+  margin-bottom: 2rem;
 }
 #product-box-images {
   display: flex;
@@ -171,18 +174,21 @@ section {
   align-items: center;
   height: 27rem;
   overflow-y: scroll;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 .image-inactive {
   height: 3.5rem;
   width: 3.5rem;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.3s ease;
 }
-.image-inactive:hover {
+.image-inactive.active {
   opacity: 1;
+  outline: 3px solid #f08f3e;
 }
-
 #product-box-image-selected {
   display: flex;
   justify-content: center;
@@ -244,21 +250,21 @@ section {
   /* Puntos de imagenes */
   width: 0.75rem;
   height: 0.75rem;
-  background-color: #f5f5f5;
+  background-color: #a8a3a3;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: inline-block;
 }
-.active {
+.pagination-dot.active {
   background-color: #3483fa;
 }
 #product-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 30%;
   height: 31rem;
   padding: 1rem;
@@ -267,19 +273,43 @@ section {
 }
 #product-name {
   font-size: 1.5rem;
+  text-align: center;
 }
 #product-price {
+  font-size: 2.5rem;
+  font-weight: 350;
+  text-align: center;
 }
 #product-offer {
   font-size: 1.05rem;
+  font-weight: 400;
+  text-align: center;
   padding: 0.2rem;
-  background-color: #f08f3e;
+  color: #00a650;
   border-radius: 0.1rem;
   transition: transform 0.5s ease;
 }
+#buy-button {
+  width: 18rem;
+  height: 3rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #f08f3e;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
 @media (hover: hover) {
-  #product-offer:hover {
-    transform: scale(1.1);
+  #buy-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px 3px rgb(0 0 0 / 0.2);
+    color: #f08f3e;
+    background-color: #ffffff;
   }
 }
 
@@ -291,6 +321,7 @@ footer {
   background-size: cover;
   background-position: 50% 50%;
   width: 100%;
+  font-family: "Carrois Gothic SC", sans-serif;
 }
 .footer-content {
   padding: 1rem;
@@ -335,8 +366,10 @@ footer {
   }
 }
 .copyright {
+  font-weight: 400;
   font-size: 0.9rem;
   color: black;
+  text-align: center;
 }
 #instagram-icon-floating {
   position: fixed;
@@ -358,6 +391,34 @@ footer {
 }
 
 /* ---------------Responsive Web Design--------------- */
+@media (width <= 320px) {
+  #product-box-images {
+    height: 25rem;
+  }
+  #product-image-selected {
+    width: 15rem;
+    height: 15rem;
+  }
+  #image-counter {
+    left: 0.5rem;
+  }
+  #product-info {
+    height: 20rem;
+  }
+  #buy-button {
+    width: 13rem;
+    height: 3rem;
+  }
+}
+@media (width >= 321px) and (width <= 550px) {
+  #product-box-images {
+    height: 30rem;
+  }
+  #product-image-selected {
+    width: 20rem;
+    height: 20rem;
+  }
+}
 @media (width <= 1000px) {
   #product-box {
     flex-direction: column;
@@ -379,8 +440,41 @@ footer {
   }
   #product-info {
     width: 100%;
+  }
+}
+@media (width >= 321px) and (width <= 1000px) {
+  #product-info {
     height: 15rem;
   }
+}
+@media (width <= 1100px) {
+  .image-inactive {
+    margin-right: 0.7rem;
+  }
+  .zoom-display-box {
+    width: 18rem;
+    height: 18rem;
+  }
+}
+@media (width >= 321px) and (width <= 1100px) {
+  #buy-button {
+    width: 15rem;
+  }
+}
+@media (width >= 1920px) {
+  .zoom-display-box {
+    width: 30rem;
+    height: 25rem;
+  }
+  #instagram-icon-floating {
+    right: calc((100vw - 1920px) / 2 + 1.5rem);
+  }
+}
+
+/* ---------------Width maximo---------------*/
+.wrapper {
+  max-width: 1920px;
+  margin: auto;
 }
 
 /* Efecto zoom a pantalla completa */
@@ -458,4 +552,39 @@ footer {
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
+}
+/* ---------------Responsive Web Design en el Modal--------------- */
+@media (width <= 480px) {
+}
+@media (width <= 850px) {
+  #modal-image-counter {
+    left: 12%;
+  }
+  #modal-prev-btn {
+    left: 7%;
+  }
+  #modal-next-btn {
+    right: 7%;
+  }
+}
+@media (width >= 851px) and (width <= 1050px) {
+  #modal-image-counter {
+    left: 20%;
+  }
+}
+@media (width >= 1051px) and (width <= 1300px) {
+  #modal-image-counter {
+    left: 27.5%;
+  }
+}
+@media (width >= 1900px) {
+  #modal-image-counter {
+    left: 32.5%;
+  }
+  #modal-prev-btn {
+    left: 20%;
+  }
+  #modal-next-btn {
+    right: 20%;
+  }
 }

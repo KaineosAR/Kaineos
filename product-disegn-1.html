@@ -31,12 +31,12 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="wrapper">
         <div id="logo-kaineos"></div>
         <h1>Kaineos</h1>
       </nav>
     </header>
-    <div id="back-link-container">
+    <div id="back-link-container" class="wrapper">
       <a href="index.html" id="back-link">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,10 +52,14 @@
       </a>
     </div>
     <main>
-      <section id="product-box">
+      <section id="product-box" class="wrapper">
         <div id="product-box-images">
           <div id="image-counter">1/6</div>
           <div id="product-gallery">
+            <img
+              src="Images/Productos/Producto Liso/Portada en la pagina Liso.jpg"
+              class="image-inactive"
+            />
             <img
               src="Images/Productos/Producto Liso/Producto Liso-Rojo.jpg"
               class="image-inactive"
@@ -112,6 +116,9 @@
               <li>
                 <span class="pagination-dot" id="pagination-dot-6"></span>
               </li>
+              <li>
+                <span class="pagination-dot" id="pagination-dot-7"></span>
+              </li>
             </ul>
           </div>
         </div>
@@ -119,12 +126,14 @@
           <h3 id="product-name">Nombre del producto</h3>
           <p id="product-price">$3.000</p>
           <p id="product-offer">$2.500 llevando 2 o mas unidades</p>
-          
+          <a href="https://ig.me/m/kaineos.ar" target="_blank" id="buy-button"
+            >Comprar ahora</a
+          >
         </div>
       </section>
     </main>
     <footer>
-      <div class="footer-content">
+      <div class="footer-content wrapper">
         <div class="footer-left">
           <img
             class="footer-logo"
@@ -138,10 +147,16 @@
         </div>
         <div class="footer-right">
           <div class="social-media">
-            <a href="" target="_blank">
+            <a
+              href="https://www.instagram.com/kaineos.ar?igsh=YjAxZm9lazJtZjAz"
+              target="_blank"
+            >
               <img src="Images/Logos/Instagram.webp" alt="Instagram" />
             </a>
-            <a href="" target="_blank">
+            <a
+              href="https://www.tiktok.com/@kaineos.ar?_t=ZM-8yn2xhXEDmn&_r=1"
+              target="_blank"
+            >
               <img src="Images/Logos/TikTok.webp" alt="TikTok" />
             </a>
           </div>
