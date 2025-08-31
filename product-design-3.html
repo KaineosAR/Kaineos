@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <title>Kaineos - Línea Patriotica</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="Images/Icons/Kaineos.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carrois+Gothic+SC&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles-products.css" />
+    <script defer src="JS/script-products.js"></script>
+    <meta name="description" content="" />
+    <meta name="author" content="Kaineos" />
+    <meta name="date" content="23-07-2025" />
+    <meta name="copyright" content="Kaineos 2025" />
+    <meta name="robots" content="index" />
+    <meta name="robots" content="follow" />
+    <meta name="robots" content="translate" />
+    <meta name="robots" content="snippet" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:alt" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+  </head>
+  <body>
+    <header>
+      <nav class="wrapper">
+        <div id="logo-kaineos"></div>
+        <h1>Kaineos</h1>
+      </nav>
+    </header>
+    <div id="back-link-container" class="wrapper">
+      <a href="index.html" id="back-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="40px"
+          viewBox="0 -960 960 960"
+          width="40px"
+          fill="currentColor"
+        >
+          <path
+            d="m287-446.67 240 240L480-160 160-480l320-320 47 46.67-240 240h513v66.66H287Z"
+          /></svg
+        >Volver
+      </a>
+    </div>
+    <main>
+      <section id="product-box" class="wrapper">
+        <div id="product-box-images">
+          <div id="image-counter">1/4</div>
+          <div id="product-gallery">
+            <img
+              src="Images/Productos/Producto Patriotico/Portada en la pagina Patriotico.jpg"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Patriotico/Producto Patriotico-Combinacion bandera.jpg"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Patriotico/Producto Patriotico-Combinacion granaderos.jpg"
+              class="image-inactive"
+            />
+            <img
+              src="Images/Productos/Producto Patriotico/Producto Patriotico-Combinacion sol de mayo.jpg"
+              class="image-inactive"
+            />
+          </div>
+          <div id="product-box-image-selected">
+            <img
+              src="Images/Productos/Producto Liso/Producto Liso-Rojo.jpg"
+              alt="Imagen de apoyacelular Kaineos"
+              id="product-image-selected"
+            />
+            <!--Pista visual que sigue al cursor-->
+            <div class="zoom-cursor-hint"></div>
+          </div>
+          <!--Caja donde se mostrará el zoom, fuera del contenedor de la imagen para que no interfiera-->
+          <div class="zoom-display-box"></div>
+          <div id="image-pagination-dots">
+            <ul>
+              <li>
+                <span class="pagination-dot" id="pagination-dot-1"></span>
+              </li>
+              <li>
+                <span class="pagination-dot" id="pagination-dot-2"></span>
+              </li>
+              <li>
+                <span class="pagination-dot" id="pagination-dot-3"></span>
+              </li>
+              <li>
+                <span class="pagination-dot" id="pagination-dot-4"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="product-info">
+          <h3 id="product-name">Apoyacelular - Línea Patriotica</h3>
+          <p id="product-price">$3.000</p>
+          <p id="product-offer">$2.500 c/u llevando 2 o más unidades</p>
+          <a href="https://ig.me/m/kaineos.ar" target="_blank" id="buy-button"
+            >Comprar ahora</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content wrapper">
+        <div class="footer-left">
+          <img
+            class="footer-logo"
+            src="Images/Icons/Kaineos.webp"
+            alt="Logo de Kaineos"
+          />
+          <div class="footer-brand">
+            <h4>Kaineos</h4>
+            <p>Reciclando con Grandeza</p>
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="social-media">
+            <a
+              href="https://www.instagram.com/kaineos.ar?igsh=YjAxZm9lazJtZjAz"
+              target="_blank"
+            >
+              <img src="Images/Logos/Instagram.webp" alt="Instagram" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@kaineos.ar?_t=ZM-8yn2xhXEDmn&_r=1"
+              target="_blank"
+            >
+              <img src="Images/Logos/TikTok.webp" alt="TikTok" />
+            </a>
+          </div>
+          <p class="copyright">
+            &copy; 2025 Kaineos. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <a
+      href="https://ig.me/m/kaineos.ar"
+      target="_blank"
+      id="instagram-icon-floating"
+    >
+      <img src="Images/Logos/Instagram.webp" alt="Instagram" />
+    </a>
+    <!-- Caja contenedora del efecto zoom a pantalla completa -->
+    <div id="fullscreen-modal" class="hidden">
+      <div class="modal-content">
+        <img
+          id="modal-image"
+          src=""
+          alt="Imagen del producto en pantalla completa"
+        />
+        <div id="modal-zoom-hint"></div>
+        <!-- Para el efecto lupa dentro del modal -->
+      </div>
+
+      <div id="modal-image-counter"></div>
+
+      <button id="modal-close-btn" class="modal-control" aria-label="Cerrar">
+        <!-- SVG para el icono de 'X' -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="48px"
+          viewBox="0 -960 960 960"
+          width="48px"
+          fill="#e3e3e3"
+        >
+          <path
+            d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+          />
+        </svg>
+      </button>
+
+      <button id="modal-prev-btn" class="modal-control" aria-label="Anterior">
+        <!-- SVG para la flecha izquierda -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="48px"
+          viewBox="0 -960 960 960"
+          width="48px"
+          fill="#e3e3e3"
+        >
+          <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
+        </svg>
+      </button>
+
+      <button id="modal-next-btn" class="modal-control" aria-label="Siguiente">
+        <!-- SVG para la flecha derecha -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="48px"
+          viewBox="0 -960 960 960"
+          width="48px"
+          fill="#e3e3e3"
+        >
+          <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" />
+        </svg>
+      </button>
+    </div>
+  </body>
+</html>

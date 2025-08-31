@@ -86,7 +86,6 @@ const menuButton = document.getElementById("button-menu");
 const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
 const navLinks = document.getElementById("nav-links");
-const allLinksInMenu = document.querySelectorAll("#nav-links li a");
 function openOrCloseMenu() {
   menuButton.classList.toggle("button-menu-pasive"); // Cambiar el background-color del boton del menu desplegable
   menuButton.classList.toggle("button-menu-active");
@@ -104,8 +103,10 @@ const closeAll = () => {
 menuButton.addEventListener("click", () => {
   openOrCloseMenu();
 });
-allLinksInMenu.forEach((link) => {
-  link.addEventListener("click", () => {
+// Para ahorrar memoria, segun GitHub Copilot
+navLinks.addEventListener("click", (event) => {
+  const link = event.target.closest('a[href^="#"]');
+  if (link) {
     closeAll();
-  });
+  }
 });
