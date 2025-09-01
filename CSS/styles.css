@@ -213,32 +213,37 @@ section {
   padding: 0;
 }
 
-/*---*/
-/*#context-one {
+/* ---------------Section "Context-one"--------------- */
+#context-one {
+  background-image: linear-gradient(#000000 50%, #1d1e20 100%);
   overflow: hidden;
   width: 100%;
-  height: 24.938rem;
+  height: 25rem;
 }
 #carrusel-track {
-  display: flex;
-  width: 200%;
+  display: flex; /* Usamos flexbox para alinear las imágenes en fila */
+  width: 200%; /* Mide el doble de la seccion para abarcar ambas imagenes */
   height: 100%;
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 60s linear infinite; /* scroll-left es solo un nombre inventado, nada oficial de CSS */
 }
 #carrusel-track img {
-  width: 50%;
+  width: 50%; /* Mide lo mismo que la seccion */
   height: 100%;
   object-fit: cover;
   max-width: none;
 }
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translateX(
+      0
+    ); /* Posición inicial, sin desplazamiento, está pegada a su borde derecho */
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(
+      -50%
+    ); /* Desplaza el track a la izquierda un 50% de su propio ancho total */
   }
-}*/
+}
 
 /* ---------------Section "Product"---------------*/
 #product {
@@ -661,6 +666,9 @@ footer {
 
 /* ---------------Responsive Web Design--------------- */
 @media (width <= 380px) {
+  #carrusel-track {
+    animation: scroll-left 15s linear infinite; /* scroll-left es solo un nombre inventado, nada oficial de CSS */
+  }
   .gallery-products a {
     width: 15rem;
     height: 15rem;
@@ -701,6 +709,11 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 80%;
+  }
+  #carrusel-track img {
+    /* Forzamos un ancho mínimo para que object-fit: cover funcione bien en móviles */
+    /* y cree el efecto de recorte y desplazamiento. */
+    min-width: 1280px;
   }
 }
 @media (width <= 760px) {
