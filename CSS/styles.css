@@ -504,11 +504,11 @@ section {
   align-items: center;
   gap: 0.5rem;
 }
-#testimonial-name {
+.testimonial-name {
   text-align: center;
   font-size: 1.1rem;
 }
-#testimonial-stars {
+.testimonial-stars {
   text-align: center;
 }
 .testimonial-message blockquote {
