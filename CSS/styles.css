@@ -9,9 +9,6 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  background-color: lightblue;
-}
 ul,
 ol {
   list-style: none;
@@ -216,6 +213,33 @@ section {
   padding: 0;
 }
 
+/*---*/
+/*#context-one {
+  overflow: hidden;
+  width: 100%;
+  height: 24.938rem;
+}
+#carrusel-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: scroll-left 30s linear infinite;
+}
+#carrusel-track img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}*/
+
 /* ---------------Section "Product"---------------*/
 #product {
   margin-top: 0;
@@ -354,7 +378,6 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
   background-image: url("../Images/Herramientas\ visuales/Background-image de la seccion Sobre nosotros en el index.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -556,7 +579,7 @@ section {
   width: 75%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   color: #ffffff;
 }
