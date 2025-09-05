@@ -204,7 +204,7 @@ section {
       transparent 55%,
       #000000 100%
     ),
-    url("../Images/Herramientas\ visuales/Portada en el index-Home-Desktop.jpg");
+    url("../Images/Herramientas-visuales/Portada en el index-Home-Desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 80%;
@@ -342,7 +342,7 @@ section {
 }
 /* ---------------Próximamente--------------- */
 .product-item.proximamente {
-  background-image: url("../Images/Herramientas\ visuales/Portada en los productos aun no publicados en el index.webp");
+  background-image: url("../Images/Herramientas-visuales/Portada-en-los-productos-aun-no-publicados-en-el-index.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -383,7 +383,7 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../Images/Herramientas\ visuales/Background-image de la seccion Sobre nosotros en el index.jpg");
+  background-image: url("../Images/Herramientas-visuales/Background-image-de-la-seccion-Sobre-nosotros-en-el-index.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -592,7 +592,7 @@ section {
 /* ---------------Footer--------------- */
 footer {
   padding: 2rem 1rem;
-  background-image: url("../Images/Herramientas\ visuales/Background-image del footer en el index.webp");
+  background-image: url("../Images/Herramientas-visuales/Background-image-del-footer-en-el-index.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -667,7 +667,7 @@ footer {
 /* ---------------Responsive Web Design--------------- */
 @media (width <= 380px) {
   #carrusel-track {
-    animation: scroll-left 15s linear infinite; /* scroll-left es solo un nombre inventado, nada oficial de CSS */
+    animation: scroll-left 25s linear infinite; /* scroll-left es solo un nombre inventado, nada oficial de CSS */
   }
   .gallery-products a {
     width: 15rem;
@@ -688,7 +688,7 @@ footer {
 }
 @media (width <= 480px) {
   #logo-kaineos {
-    background-image: url("../Images/Icons/Kaineos-Fondo\ negro.webp");
+    background-image: url("../Images/Icons/Kaineos-Fondo-negro.webp");
   }
   nav h1 {
     font-size: 2.1rem;
@@ -705,7 +705,7 @@ footer {
         transparent 55%,
         #000000 100%
       ),
-      url("../Images/Herramientas\ visuales/Portada en el index-Home-Mobile.jpg");
+      url("../Images/Herramientas-visuales/Portada en el index-Home-Mobile.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 80%;
